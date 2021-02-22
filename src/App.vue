@@ -50,6 +50,7 @@ export default {
         this.tableItems = await this.editedItem
           ? ApiService.updateItem(id, item)
           : ApiService.addItem(item)
+        this.handleOnReset()
       })
     },
     handleOnReset() {

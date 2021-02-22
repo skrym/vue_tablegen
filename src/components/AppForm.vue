@@ -87,6 +87,8 @@ export default {
     itemForEdit() {
       if (this.itemForEdit) {
         this.form = { ...this.itemForEdit }
+      } else if (this.itemForEdit === null) {
+        this.handleResetForm()
       }
     },
   },

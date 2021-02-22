@@ -50,7 +50,7 @@ export default {
   data() {
     return {
       formFields,
-      form: fieldsKeys,
+      form: { ...fieldsKeys },
     }
   },
   computed: {
@@ -67,7 +67,7 @@ export default {
       return $dirty ? !$error : null
     },
     handleResetForm() {
-      this.form = fieldsKeys
+      this.form = { ...fieldsKeys }
       this.onReset()
 
       this.$nextTick(() => {
@@ -87,8 +87,6 @@ export default {
     itemForEdit() {
       if (this.itemForEdit) {
         this.form = { ...this.itemForEdit }
-      } else if (this.itemForEdit === null) {
-        this.handleResetForm()
       }
     },
   },
